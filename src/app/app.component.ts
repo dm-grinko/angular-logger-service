@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from './services/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-logger-service';
+  constructor(private logger: LoggerService) {
+    this.logger.info('Info');
+    this.logger.warn('Warning');
+    this.logger.error('Error');
+  }
 }
